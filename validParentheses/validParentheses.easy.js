@@ -23,4 +23,22 @@ Example 3:
 Input: s = "(]"
 Output: false
  */
-const isValid = function (s) {};
+const isValid = function (s) {
+  if (!/^[{}\[\]()]+$/.test(s)) {
+    //check if input contain only brackets charecters
+    return "Please choose right charecters";
+  }
+  const validCharOrder = ["()", "[]", "{}"];
+  let bool = "";
+  if (s.length % 2 !== 0) return false; //if length is odd, there is for sure an opened brackets.
+  for (let i = 0; i < s.length; i += 2) {
+    if (validCharOrder.includes(s[i] + s[i + 1])) {
+      bool = true;
+    } else {
+      bool = false;
+    }
+  }
+  return bool;
+};
+
+module.exports = isValid;
