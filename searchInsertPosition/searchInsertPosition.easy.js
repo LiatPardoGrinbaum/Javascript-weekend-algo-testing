@@ -30,4 +30,23 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+const searchInsert = function (nums, target) {
+  //solving with iterative binaric search
+  let start = 0;
+  let end = nums.length - 1;
+  //check for both cases when target isn't in nums range:
+  if (target > nums[nums.length - 1]) return nums.length;
+  if (target < nums[0]) return 0;
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if (nums[mid] === target) return mid;
+    if (target < nums[mid]) {
+      end = mid - 1;
+    } else if (target > nums[mid]) {
+      start = mid + 1;
+    }
+  }
+  return Math.floor((start + end) / 2) + 1; // happens when it out of the loop ,when start > end. still can find the mid but have to add 1 because mid is floored.
+};
+
+module.exports = searchInsert;

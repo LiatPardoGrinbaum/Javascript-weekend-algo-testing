@@ -13,7 +13,7 @@ What should we return when needle is an empty string? This is a great question t
 
 For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strStr() and Java's indexOf().
 }
- 
+  
 
 Example 1:
 
@@ -31,4 +31,18 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+//two solutions:
+//solution- with 1 for loop, using slice method for strings. (not using indexOf):
+const strStr = function (haystack, needle) {
+  if (needle === "") return 0;
+  let needleSize = needle.length;
+  for (let i = 0; i < haystack.length - needleSize + 1; i++) {
+    let sub = haystack.slice(i, i + needleSize); // comparing every substring in the length of needle to needle.
+    if (sub === needle) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+module.exports = strStr;
