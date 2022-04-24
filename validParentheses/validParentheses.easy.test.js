@@ -6,7 +6,7 @@ test("Example 1", () => {
 });
 
 test("Example 2", () => {
-  expect(isValid("()[]{}")).toBe(true);
+  expect(isValid("()[]{}[]")).toBe(true);
 });
 
 test("Example 3", () => {

@@ -26,7 +26,7 @@ Output: false
 const isValid = function (s) {
   if (!/^[{}\[\]()]+$/.test(s)) {
     //check if input contains only brackets charecters
-    return "Please choose right charecters";
+    return "Please choose valid characters";
   }
   const validCharOrder = ["()", "[]", "{}"];
   let bool = "";
